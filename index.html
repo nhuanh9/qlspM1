@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row" id="hien-thi">
+
+    </div>
+    <div>
+        <input type="text" id="ten">
+        <input type="text" id="gia">
+        <button>Sửa</button>
+
+    </div>
+</div>
+
+<script>
+    let SanPham = function (id, ten, gia) {
+        this.id = id;
+        this.ten = ten;
+        this.gia = gia;
+    }
+
+
+    let sp1 = new SanPham(1, "Hoan", 0);
+    let sp2 = new SanPham(2, "Hoan1", 0);
+    let sp3 = new SanPham(3, "Hoan2", 0);
+    let sp4 = new SanPham(4, "Hoan3", 0);
+    let sp5 = new SanPham(5, "Hoan4", 0);
+    let mangSp = [sp1, sp2, sp3, sp4, sp5];
+
+    function hienThi() {
+        let str = '';
+        for (let i = 0; i < mangSp.length; i++) {
+            str += '<div class="col-3">\n' +
+                '    <div class="card  m-1">\n' +
+                '        <img class="card-img-top" src="https://static.scientificamerican.com/sciam/cache/file/92E141F8-36E4-4331-BB2EE42AC8674DD3_source.jpg" alt="Card image cap">\n' +
+                '        <div class="card-body">\n' +
+                '            <h5 class="card-title">' + mangSp[i].ten + '</h5>\n' +
+                '            <p class="card-text">' + mangSp[i].gia + '</p>\n' +
+                '            <p class="card-text">' + mangSp[i].gia + '</p>\n' +
+                '            <a href="#" class="btn btn-primary" onclick="sua(' + i + ')">Sửa</a>\n' +
+                '        </div>\n' +
+                '    </div>\n' +
+                '</div>'
+        }
+        document.getElementById('hien-thi').innerHTML = str;
+    }
+
+    function sua(viTri) {
+        alert(mangSp[viTri].ten);
+        document.getElementById('ten').value = mangSp[viTri].ten;
+        document.getElementById('gia').value = mangSp[viTri].gia;
+    }
+
+    hienThi();
+</script>
+</body>
+</html>
